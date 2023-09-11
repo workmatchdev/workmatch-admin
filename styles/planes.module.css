@@ -1,0 +1,13 @@
+.buttonModal{
+    @apply bg-sky-900 text-white p-3 rounded-sm
+}
+
+.buttonModalEditPlan{
+    @apply bg-yellow-500 text-white py-3 px-6 rounded-sm text-lg
+}
+
+
+.buttonsContainer{
+    @apply flex flex-row;
+    @apply p-4 bg-gray-100 mt-8
+}
