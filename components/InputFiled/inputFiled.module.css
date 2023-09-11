@@ -1,0 +1,15 @@
+
+.root{
+    @apply px-5 mb-5
+}
+
+.inputProps{
+    @apply bg-gray-50 border;
+    @apply border-gray-300;
+    @apply text-gray-900;
+    @apply text-sm;
+    @apply rounded-md ;
+    @apply block w-full;
+    @apply p-2;
+    @apply outline-none;
+}

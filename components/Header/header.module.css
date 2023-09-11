@@ -1,0 +1,9 @@
+.header {
+    @apply flex justify-between items-center;
+    @apply px-6 bg-slate-700 mb-6 h-24 relative;
+}
+
+.iconHeader {
+    @apply w-6 h-6 stroke-white;
+    @apply mx-2
+}

@@ -1,0 +1,18 @@
+.checkbox{
+    @apply w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded outline-none;
+    @apply mr-4;
+}
+
+.checkboxContainer{
+    @apply flex flex-row justify-around;
+    @apply p-6;
+}
+
+.checkboxContainerCol{
+    @apply flex flex-col;
+    @apply w-1/2;
+}
+
+.labelCheckbox{
+    @apply my-2;
+}

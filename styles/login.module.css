@@ -1,0 +1,26 @@
+.loginButton {
+    @apply bg-blue-800;
+    @apply p-2 rounded-md w-full mt-5;
+}
+
+.loginContainer {
+    @apply p-10 w-96;
+    @apply bg-white rounded-md
+}
+
+.generalContainerLogin {
+    @apply h-screen w-full;
+    @apply flex justify-center items-center bg-slate-200
+}
+
+.title {
+    @apply text-center font-extralight;
+    @apply text-2xl mb-5;
+    @apply border-b-2 pb-3
+}
+
+@media screen and (max-width: 500px) {
+    .loginContainer {
+        @apply p-5 w-9/12;
+    }
+}

@@ -1,0 +1,44 @@
+.buttonsContainer {
+    @apply flex flex-row
+}
+
+.buttonCreateRoles {
+    @apply bg-sky-900 text-white active:bg-blue-900 font-bold uppercase text-sm;
+    @apply px-6 py-3 rounded shadow hover:shadow-lg outline-none;
+    @apply focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150;
+}
+
+.editarRol {
+    @apply font-normal underline;
+    @apply bg-yellow-500 h-10 text-white rounded p-2;
+}
+
+.deleteRol {
+    @apply font-normal underline;
+    @apply bg-red-500 h-10 text-white rounded p-2;
+}
+
+.rolesList {
+    @apply flex flex-col;
+    @apply p-4;
+    @apply w-full max-w-full mx-auto bg-white shadow-lg rounded-sm border border-gray-200;
+}
+
+.roleItem {
+    @apply flex flex-row justify-between items-center;
+    @apply px-2 border-b-2 border-black;
+}
+
+.roleItemActions {
+    @apply flex flex-row items-center
+}
+
+@media screen and (max-width: 400px) {
+    .buttonsContainer {
+        @apply flex flex-col
+    }
+
+    .buttonCreateRoles {
+        @apply w-full
+    }
+}
