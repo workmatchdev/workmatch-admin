@@ -1,5 +1,5 @@
 .buttonsContainer {
-    @apply flex flex-row
+    @apply flex flex-row bg-gray-200 mt-5
 }
 
 .buttonCreateRoles {
