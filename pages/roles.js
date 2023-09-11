@@ -3,10 +3,12 @@ import Modal from "@/components/Modal";
 import CreateRole from "@/components/Forms/CreateRol/CreateRol";
 import EditRol from "@/components/Forms/EditRol";
 import classes from '@/styles/roles.module.css';
+import Title from "@/components/Title";
 
 const Roles = () => {
     return (
         <Layout>
+            <Title title='Roles' />
             <div className={classes.buttonsContainer}>
                 <Modal title='Crear nuevo rol' buttonStyle={classes.buttonCreateRoles}>
                     <CreateRole />
