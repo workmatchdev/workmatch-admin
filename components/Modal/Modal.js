@@ -14,7 +14,7 @@ const Modal = (props) => {
 
     return (
         <div>
-            <div className="p-5">
+            <div className="">
                 <button
                     className={buttonStyle}
                     type="button"
@@ -26,7 +26,7 @@ const Modal = (props) => {
             {showModal ? (
                 <>
                     <div
-                        className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none h-screen"
+                        className="justify-center items-start flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none h-screen"
                     >
                         <div className="relative my-6 mx-auto sm:w-1/2 w-11/12">
                             {/*content*/}

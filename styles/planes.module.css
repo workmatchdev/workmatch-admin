@@ -1,11 +1,15 @@
 .buttonModal{
-    @apply bg-sky-900 text-white p-3 rounded-sm
+    @apply bg-sky-900 text-white p-3 rounded-sm mx-4
 }
 
 .buttonModalEditPlan{
-    @apply bg-yellow-500 text-white py-3 px-6 rounded-sm text-lg
+    @apply bg-yellow-500 h-10 text-white rounded p-2 ml-4
 }
 
+.deleteRol {
+    @apply font-normal underline;
+    @apply bg-red-500 h-10 text-white rounded p-2 ml-4;
+}
 
 .buttonsContainer{
     @apply flex flex-row;

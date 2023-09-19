@@ -1,6 +1,16 @@
 import { useRef, useEffect } from 'react';
 import classes from './Sidebar.module.css';
-import { ChevronRight } from '@/assets/icons';
+import {
+    ChevronRight,
+    AspirantIcon,
+    CompanyIcon,
+    GraphicIcon,
+    RolesIcon,
+    SupportIcon,
+    CreditCartIcon,
+    PageBuilderIcon,
+    UserIcon
+} from '@/assets/icons';
 import useSidebar from './hooks/useSidebar';
 import { useRouter } from 'next/router'
 
@@ -39,35 +49,59 @@ const Sidebar = () => {
             </div>
             <div className={classes.itemsContainer}>
                 <div onClick={() => { router.push('/users'); handleCloseSidebar(); }} className={classes.item}>
-                    <p>Aspirantes</p>
+                    <div className={classes.textItemContainer}>
+                        <AspirantIcon className={classes.iconItem} />
+                        <p>Aspirantes</p>
+                    </div>
                     <ChevronRight className={classes.icon} />
                 </div>
                 <div onClick={() => { router.push('/companies'); handleCloseSidebar(); }} className={classes.item}>
-                    <p>Empresas</p>
+                    <div className={classes.textItemContainer}>
+                        <CompanyIcon className={classes.iconItem} />
+                        <p>Empresas</p>
+                    </div>
                     <ChevronRight className={classes.icon} />
                 </div>
                 <div onClick={() => { router.push('/metrics'); handleCloseSidebar(); }} className={classes.item}>
-                    <p>Metricas</p>
+                    <div className={classes.textItemContainer}>
+                        <GraphicIcon className={classes.iconItem} />
+                        <p>Metricas</p>
+                    </div>
                     <ChevronRight className={classes.icon} />
                 </div>
                 <div onClick={() => { router.push('/roles'); handleCloseSidebar(); }} className={classes.item}>
-                    <p>Roles</p>
+                    <div className={classes.textItemContainer}>
+                        <RolesIcon className={classes.iconItem} />
+                        <p>Roles</p>
+                    </div>
                     <ChevronRight className={classes.icon} />
                 </div>
                 <div onClick={() => { router.push('/admins'); handleCloseSidebar(); }} className={classes.item}>
-                    <p>Usuarios</p>
+                    <div className={classes.textItemContainer}>
+                        <UserIcon className={classes.iconItem} />
+                        <p>Usuarios</p>
+                    </div>
                     <ChevronRight className={classes.icon} />
                 </div>
                 <div onClick={() => { router.push('/page-builder'); handleCloseSidebar(); }} className={classes.item}>
-                    <p>Page Builder</p>
+                    <div className={classes.textItemContainer}>
+                        <PageBuilderIcon className={classes.iconItem} />
+                        <p>Page Builder</p>
+                    </div>
                     <ChevronRight className={classes.icon} />
                 </div>
                 <div onClick={() => { router.push('/supports'); handleCloseSidebar(); }} className={classes.item}>
-                    <p>Soporte</p>
+                    <div className={classes.textItemContainer}>
+                        <SupportIcon className={classes.iconItem} />
+                        <p>Soporte</p>
+                    </div>
                     <ChevronRight className={classes.icon} />
                 </div>
                 <div onClick={() => { router.push('/planes'); handleCloseSidebar(); }} className={classes.item}>
-                    <p>Planes</p>
+                    <div className={classes.textItemContainer}>
+                        <CreditCartIcon className={classes.iconItem} />
+                        <p>Membresias</p>
+                    </div>
                     <ChevronRight className={classes.icon} />
                 </div>
             </div>
