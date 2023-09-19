@@ -16,7 +16,7 @@ const Admins = () => {
             </div>
             <div className="my-8">
                 <div>
-                    <div className="flex flex-row justify-between bg-gray-300 px-4 py-4">
+                    <div className="flex flex-row justify-between bg-gray-300 px-4 py-2">
                         <p className="w-1/4">Nombre</p>
                         <p className="w-1/4">Rol</p>
                         <p className="w-1/4">Activo</p>
@@ -24,9 +24,9 @@ const Admins = () => {
                     </div>
                 </div>
                 <div>
-                    <div className="flex flex-row items-center justify-between bg-gray-100 px-4">
-                        <p className="font-semibold text-xl w-1/4">Cosme Fulanito</p>
-                        <p className="font-semibold text-xl w-1/4">Administrador</p>
+                    <div className="flex flex-row items-center justify-between bg-gray-100 px-4 py-2">
+                        <p className="font-light text-lg w-1/4">Cosme Fulanito</p>
+                        <p className="font-light text-lg w-1/4">Administrador</p>
                         <div className="w-1/4">
                             <label class="relative inline-flex items-center cursor-pointer">
                                 <input type="checkbox" value="" class="sr-only peer" checked={true} />
@@ -42,9 +42,9 @@ const Admins = () => {
                     </div>
                 </div>
                 <div>
-                    <div className="flex flex-row items-center justify-between bg-gray-100 px-4">
-                        <p className="font-semibold text-xl w-1/4">Cosme Fulanito</p>
-                        <p className="font-semibold text-xl w-1/4">Revier</p>
+                    <div className="flex flex-row items-center justify-between bg-gray-100 px-4 py-2">
+                        <p className="font-light text-lg w-1/4">Cosme Fulanito</p>
+                        <p className="font-light text-lg w-1/4">Revier</p>
                         <div className="w-1/4">
                             <label class="relative inline-flex items-center cursor-pointer">
                                 <input type="checkbox" value="" class="sr-only peer" checked={true} />
@@ -60,9 +60,9 @@ const Admins = () => {
                     </div>
                 </div>
                 <div>
-                    <div className="flex flex-row items-center justify-between bg-gray-100 px-4">
-                        <p className="font-semibold text-xl w-1/4">Cosme Fulanito</p>
-                        <p className="font-semibold text-xl w-1/4">Editor</p>
+                    <div className="flex flex-row items-center justify-between bg-gray-100 px-4 py-2">
+                        <p className="font-light text-lg w-1/4">Cosme Fulanito</p>
+                        <p className="font-light text-lg w-1/4">Editor</p>
                         <div className="w-1/4">
                             <label class="relative inline-flex items-center cursor-pointer">
                                 <input type="checkbox" value="" class="sr-only peer" checked={true} />

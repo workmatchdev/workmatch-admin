@@ -6,8 +6,8 @@ const Supports = () => {
     return (
         <Layout>
             <Title title="Soporte" />
-            <div className="mt-10">
-                <div>
+            <div className="mt-10 overflow-x-auto">
+                <div className="min-w-[1100px]">
                     <div>
                         <div className="flex flex-row justify-between bg-gray-300 px-4 py-4">
                             <p className="w-1/5">Nombre</p>

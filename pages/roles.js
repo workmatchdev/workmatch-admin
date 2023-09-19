@@ -23,8 +23,8 @@ const Roles = () => {
                     </div>
                 </div>
                 <div>
-                    <div className="flex flex-row items-center justify-between bg-gray-100 px-4">
-                        <p className="font-semibold text-xl w-1/3">Administrador</p>
+                    <div className="flex flex-row items-center justify-between bg-gray-100 px-4 p-2">
+                        <p className="font-light text-lg w-1/3">Administrador</p>
                         <div className="w-1/3">
                             <label class="relative inline-flex items-center cursor-pointer">
                                 <input type="checkbox" value="" class="sr-only peer" checked={true} />
@@ -40,8 +40,8 @@ const Roles = () => {
                     </div>
                 </div>
                 <div>
-                    <div className="flex flex-row items-center justify-between bg-gray-100 px-4">
-                        <p className="font-semibold text-xl w-1/3">Revier</p>
+                    <div className="flex flex-row items-center justify-between bg-gray-100 px-4 p-2">
+                        <p className="font-light text-lg w-1/3">Revier</p>
                         <div className="w-1/3">
                             <label class="relative inline-flex items-center cursor-pointer">
                                 <input type="checkbox" value="" class="sr-only peer" checked={true} />
@@ -57,8 +57,8 @@ const Roles = () => {
                     </div>
                 </div>
                 <div>
-                    <div className="flex flex-row items-center justify-between bg-gray-100 px-4">
-                        <p className="font-semibold text-xl w-1/3">Editor</p>
+                    <div className="flex flex-row items-center justify-between bg-gray-100 px-4 p-2">
+                        <p className="font-light text-lg w-1/3">Editor</p>
                         <div className="w-1/3">
                             <label class="relative inline-flex items-center cursor-pointer">
                                 <input type="checkbox" value="" class="sr-only peer" checked={true} />
