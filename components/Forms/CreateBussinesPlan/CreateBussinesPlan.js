@@ -1,6 +1,7 @@
 import { Formik, Form, Field } from 'formik';
 import InputFiled from '../../InputFiled';
 import classes from '../CreateRol/createRol.module.css'
+import TextLabel from '@/components/TextLabel';
 
 const CreateBussinesPlan = () => {
     return (
@@ -49,6 +50,15 @@ const CreateBussinesPlan = () => {
                             label={'Numero de propuestas laborales activas'}
                             name="numberJobProposals"
                         />
+                    </div>
+                    <div className="flex flex-col items-start mt-4 mb-4 p-4">
+                        <TextLabel label={'Tipo de periodo'} />
+                        <select className="w-full text-center rounded-sm p-2 border border-gray-300 bg-gray-50">
+                            <option>-- Selecciones</option>
+                            <option value={1}>Mensual</option>
+                            <option value={2}>Semestral</option>
+                            <option value={3}>Anual</option>
+                        </select>
                     </div>
                     <div className={classes.checkboxContainer} role="group" aria-labelledby="checkbox-group">
                         <div className={classes.checkboxContainerCol}>

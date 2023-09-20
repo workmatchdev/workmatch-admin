@@ -1,5 +1,6 @@
 import { Formik, Form, Field } from 'formik';
 import InputFiled from '../../InputFiled';
+import TextLabel from '@/components/TextLabel';
 import classes from '../CreateRol/createRol.module.css'
 
 const CreatePlan = () => {
@@ -10,7 +11,7 @@ const CreatePlan = () => {
                     name: '',
                     countMatchs: 0,
                     price: 0,
-                    disaccount:0,
+                    disaccount: 0,
                     privileges: []
                 }}
                 onSubmit={async (values) => {
@@ -47,7 +48,15 @@ const CreatePlan = () => {
                             name="disaccount"
                         />
                     </div>
-
+                    <div className="flex flex-col items-start mt-4 mb-4 p-4">
+                        <TextLabel label={'Tipo de periodo'} />
+                        <select className="w-full text-center rounded-sm p-2 border border-gray-300 bg-gray-50">
+                            <option>-- Selecciones</option>
+                            <option value={1}>Mensual</option>
+                            <option value={2}>Semestral</option>
+                            <option value={3}>Anual</option>
+                        </select>
+                    </div>
                     <div className={classes.checkboxContainer} role="group" aria-labelledby="checkbox-group">
                         <div className={classes.checkboxContainerCol}>
                             <label className={classes.labelCheckbox}>
@@ -92,5 +101,5 @@ const CreatePlan = () => {
         </div>
     );
 }
- 
+
 export default CreatePlan;
