@@ -17,6 +17,15 @@
     @apply mx-2
 }
 
+.iconItem {
+    @apply w-5 h-5 stroke-black;
+    @apply mr-2
+}
+
+.textItemContainer {
+    @apply flex justify-start items-center
+}
+
 .itemsContainer {
     @apply p-4;
 }
