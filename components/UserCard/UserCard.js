@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const UserCard = () => {
     return (
         <tr>
@@ -14,7 +16,7 @@ const UserCard = () => {
                 <div class="text-left font-medium text-blue-500">5542179236</div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-lg text-center"><a>Ver mas</a></div>
+                <div class="text-lg text-center"><Link href="/users/1561" > <p>Ver mas</p> </Link></div>
             </td>
         </tr>
     );
