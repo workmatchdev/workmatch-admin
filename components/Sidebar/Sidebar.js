@@ -13,6 +13,7 @@ import {
 } from '@/assets/icons';
 import useSidebar from './hooks/useSidebar';
 import { useRouter } from 'next/router'
+import useLogin from '@/hooks/sessions/useLogin';
 
 const Sidebar = () => {
 
@@ -20,6 +21,10 @@ const Sidebar = () => {
         handleSetShowSidebar,
         handleCloseSidebar
     } = useSidebar();
+
+    const {
+        handleLogout
+    } = useLogin()
 
     const router = useRouter();
 
@@ -45,7 +50,7 @@ const Sidebar = () => {
             <div className={classes.user}>
                 <p className={classes.userData}>Cosme Fulanito - Reviewr</p>
                 <p className={classes.userData}>test@test.com</p>
-                <button className={classes.logOutButton}>Cerrar Sesion</button>
+                <button onClick={() => handleLogout()} className={classes.logOutButton}>Cerrar Sesion</button>
             </div>
             <div className={classes.itemsContainer}>
                 <div onClick={() => { router.push('/users'); handleCloseSidebar(); }} className={classes.item}>

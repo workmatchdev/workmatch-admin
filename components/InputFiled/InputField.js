@@ -11,6 +11,7 @@ const InputField = (props) => {
                 type={type}
                 className={inputStyle}
                 name={name}
+                {...props}
             />
         </div>
     );
