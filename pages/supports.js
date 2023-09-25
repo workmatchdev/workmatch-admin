@@ -1,8 +1,13 @@
 import Layout from "@/components/Layout";
 import Title from "@/components/Title";
 import Modal from "@/components/Modal";
+import useSession from "@/hooks/sessions/useSession";
+
 
 const Supports = () => {
+
+    const { user } = useSession();
+
     return (
         <Layout>
             <Title title="Soporte" />

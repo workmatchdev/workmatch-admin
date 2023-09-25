@@ -1,6 +1,8 @@
 import Layout from "@/components/Layout";
+import useSession from "@/hooks/sessions/useSession";
 
 const User = () => {
+    const { user } = useSession();
     return (
         <Layout>
             <div className="flex justify-between flex-row">

@@ -3,9 +3,10 @@ import Modal from "@/components/Modal";
 import CreateUser from "@/components/Forms/CreateUser";
 import classes from '@/styles/roles.module.css';
 import Title from "@/components/Title";
-
+import useSession from "@/hooks/sessions/useSession";
 
 const Admins = () => {
+    const { user } = useSession();
     return (
         <Layout>
             <Title title='Usuarios' />

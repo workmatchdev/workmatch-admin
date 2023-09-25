@@ -2,8 +2,10 @@ import Pagination from "@/components/Pagination";
 import UserCard from "@/components/UserCard";
 import SearchBar from "@/components/SearchBar/SearchBar";
 import Layout from "@/components/Layout";
+import useSession from "@/hooks/sessions/useSession";
 
 const Companies = () => {
+    const { user } = useSession();
     return (
         <Layout>
             <section className=" bg-gray-100 text-gray-600 min-h-screen px-4 p-10">

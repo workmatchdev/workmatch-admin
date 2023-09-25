@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import axios from '@/config/clienteAxios';
-import useStoreLogin from "@/hooks/useLogin/store";
+import useStoreLogin from "./store";
 import { useRouter } from 'next/router';
 
 const useLogin = () => {
 
-  const router = useRouter()
+  const router = useRouter();
   const [error, setError] = useState(null);
 
   const {

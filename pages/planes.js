@@ -4,8 +4,10 @@ import CreatePlan from "@/components/Forms/CreatePlan";
 import CreateBussinesPlan from "@/components/Forms/CreateBussinesPlan";
 import classes from '@/styles/planes.module.css';
 import Title from "@/components/Title";
+import useSession from "@/hooks/sessions/useSession";
 
 const Planes = () => {
+    const { user } = useSession();
     return (
         <Layout>
             <Title title='Membresias' />

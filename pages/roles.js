@@ -4,8 +4,10 @@ import CreateRole from "@/components/Forms/CreateRol/CreateRol";
 import EditRol from "@/components/Forms/EditRol";
 import classes from '@/styles/roles.module.css';
 import Title from "@/components/Title";
+import useSession from "@/hooks/sessions/useSession";
 
 const Roles = () => {
+    const { user } = useSession();
     return (
         <Layout>
             <Title title='Roles' />

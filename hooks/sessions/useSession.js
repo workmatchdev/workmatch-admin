@@ -1,4 +1,6 @@
+import { useEffect, useMemo } from "react";
 import useStoreLogin from "./store/useStoreLogin";
+import { useRouter } from 'next/router';
 
 const useSession = () => {
 
@@ -7,9 +9,24 @@ const useSession = () => {
         token
     } = useStoreLogin();
 
-    return {
+    const router = useRouter()
+
+    const islogged = useMemo(() => {
+        return user && token ? true : false
+    }, [
         user,
         token
+    ])
+
+    useEffect(() => {
+      if(!islogged) router.push('/');
+    }, [islogged]);
+    
+
+    return {
+        user,
+        token,
+        islogged
     };
 }
 

@@ -3,9 +3,10 @@ import Layout from "@/components/Layout";
 import BarHorizontalStacekd from "@/components/BarHorizontalStacekd";
 import JointLineScatterChart from "@/components/JointLineScatterChart";
 import Title from "@/components/Title";
+import useSession from "@/hooks/sessions/useSession";
 
 const Metrics = () => {
-
+    const { user } = useSession();
     return (
         <Layout>
             <Title title='Metricas' />
