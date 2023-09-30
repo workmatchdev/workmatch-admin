@@ -42,7 +42,7 @@ const Roles = () => {
                                     </label> */}
                                 </div>
                                 <div className="w-1/3 flex justify-end items-center">
-                                    {!rol.isEditable ? (
+                                    {rol.isEditable ? (
                                         <>
                                             <Modal buttonStyle={classes.editarRol} title='Editar'>
                                                 <EditRol initialValues={rol} submit={handleSubmitUpdate} />
