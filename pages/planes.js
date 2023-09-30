@@ -40,7 +40,7 @@ const Planes = () => {
                 </div>
                 {memberships.map(membership => {
                     return (
-                        <div>
+                        <div key={membership._id}>
                             <div className="flex flex-row items-center justify-between bg-gray-100 px-4 py-2">
                                 <p className="font-light text-xl w-1/5">{membership.name}</p>
                                 <p className="font-light text-xl w-1/5"> $ {membership.price} MXN</p>

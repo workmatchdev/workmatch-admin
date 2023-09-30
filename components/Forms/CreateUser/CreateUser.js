@@ -55,7 +55,7 @@ const CreateUser = (props) => {
                                 <option>-- Selecciones</option>
                                 {roles.map(rol => {
                                     return (
-                                        <option value={rol._id}>{rol.name}</option>
+                                        <option key={rol._id} value={rol._id}>{rol.name}</option>
                                     )
                                 })}
                             </Field>

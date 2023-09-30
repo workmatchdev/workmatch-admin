@@ -34,7 +34,7 @@ const Admins = () => {
                 </div>
                 {users.map(user => {
                     return (
-                        <div>
+                        <div key={user._id}>
                             <div className="flex flex-row items-center justify-between bg-gray-100 px-4 py-2">
                                 <p className="font-light text-lg w-1/4">{user.name}</p>
                                 <p className="font-light text-lg w-1/4">{user.rol?.name}</p>
