@@ -3,9 +3,9 @@ import InputFiled from '../../InputFiled';
 import TextLabel from '@/components/TextLabel';
 import useRoles from '@/hooks/roles/useRoles';
 import ErrorField from '@/components/ErrorField';
-import { UserSchema } from '@/lib/formsValidations';
+import { UserUpdateSchema } from '@/lib/formsValidations';
 
-const CreateUser = (props) => {
+const UpdateUser = (props) => {
     const {
         setShowModal,
         submit = () => { },
@@ -17,10 +17,10 @@ const CreateUser = (props) => {
             <Formik
                 initialValues={initialValues}
                 onSubmit={async values => {
-                    submit(values)
+                    submit(values,initialValues._id)
                     setShowModal(false)
                 }}
-                validationSchema={UserSchema}
+                validationSchema={UserUpdateSchema}
             >
                 {({errors,touched}) => (
                     <Form>
@@ -76,4 +76,4 @@ const CreateUser = (props) => {
     );
 }
 
-export default CreateUser;
+export default UpdateUser;

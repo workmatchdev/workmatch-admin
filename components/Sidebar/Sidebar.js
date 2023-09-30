@@ -23,7 +23,8 @@ const Sidebar = () => {
     } = useSidebar();
 
     const {
-        handleLogout
+        handleLogout,
+        privileges
     } = useLogin()
 
     const router = useRouter();
@@ -53,62 +54,80 @@ const Sidebar = () => {
                 <button onClick={() => handleLogout()} className={classes.logOutButton}>Cerrar Sesion</button>
             </div>
             <div className={classes.itemsContainer}>
-                <div onClick={() => { router.push('/users'); handleCloseSidebar(); }} className={classes.item}>
+                {privileges.includes('Users') && <div onClick={() => { router.push('/users'); handleCloseSidebar(); }} className={classes.item}>
                     <div className={classes.textItemContainer}>
                         <AspirantIcon className={classes.iconItem} />
                         <p>Aspirantes</p>
                     </div>
                     <ChevronRight className={classes.icon} />
-                </div>
-                <div onClick={() => { router.push('/companies'); handleCloseSidebar(); }} className={classes.item}>
-                    <div className={classes.textItemContainer}>
-                        <CompanyIcon className={classes.iconItem} />
-                        <p>Empresas</p>
+                </div>}
+                {privileges.includes("Companies") &&
+                    <div onClick={() => { router.push('/companies'); handleCloseSidebar(); }} className={classes.item}>
+                        <div className={classes.textItemContainer}>
+                            <CompanyIcon className={classes.iconItem} />
+                            <p>Empresas</p>
+                        </div>
+                        <ChevronRight className={classes.icon} />
                     </div>
-                    <ChevronRight className={classes.icon} />
-                </div>
-                <div onClick={() => { router.push('/metrics'); handleCloseSidebar(); }} className={classes.item}>
-                    <div className={classes.textItemContainer}>
-                        <GraphicIcon className={classes.iconItem} />
-                        <p>Metricas</p>
+                }
+                {
+                    privileges.includes("Metricas") &&
+                    <div onClick={() => { router.push('/metrics'); handleCloseSidebar(); }} className={classes.item}>
+                        <div className={classes.textItemContainer}>
+                            <GraphicIcon className={classes.iconItem} />
+                            <p>Metricas</p>
+                        </div>
+                        <ChevronRight className={classes.icon} />
                     </div>
-                    <ChevronRight className={classes.icon} />
-                </div>
-                <div onClick={() => { router.push('/roles'); handleCloseSidebar(); }} className={classes.item}>
-                    <div className={classes.textItemContainer}>
-                        <RolesIcon className={classes.iconItem} />
-                        <p>Roles</p>
+                }
+                {
+                    privileges.includes("Roles") &&
+                    <div onClick={() => { router.push('/roles'); handleCloseSidebar(); }} className={classes.item}>
+                        <div className={classes.textItemContainer}>
+                            <RolesIcon className={classes.iconItem} />
+                            <p>Roles</p>
+                        </div>
+                        <ChevronRight className={classes.icon} />
                     </div>
-                    <ChevronRight className={classes.icon} />
-                </div>
-                <div onClick={() => { router.push('/admins'); handleCloseSidebar(); }} className={classes.item}>
-                    <div className={classes.textItemContainer}>
-                        <UserIcon className={classes.iconItem} />
-                        <p>Usuarios</p>
+                }
+                {
+                    privileges.includes("Admin") &&
+                    <div onClick={() => { router.push('/admins'); handleCloseSidebar(); }} className={classes.item}>
+                        <div className={classes.textItemContainer}>
+                            <UserIcon className={classes.iconItem} />
+                            <p>Usuarios</p>
+                        </div>
+                        <ChevronRight className={classes.icon} />
                     </div>
-                    <ChevronRight className={classes.icon} />
-                </div>
-                <div onClick={() => { router.push('/page-builder'); handleCloseSidebar(); }} className={classes.item}>
-                    <div className={classes.textItemContainer}>
-                        <PageBuilderIcon className={classes.iconItem} />
-                        <p>Page Builder</p>
+                }
+                {
+                    privileges.includes("PageBuilder") &&
+                    <div onClick={() => { router.push('/page-builder'); handleCloseSidebar(); }} className={classes.item}>
+                        <div className={classes.textItemContainer}>
+                            <PageBuilderIcon className={classes.iconItem} />
+                            <p>Page Builder</p>
+                        </div>
+                        <ChevronRight className={classes.icon} />
                     </div>
-                    <ChevronRight className={classes.icon} />
-                </div>
-                <div onClick={() => { router.push('/supports'); handleCloseSidebar(); }} className={classes.item}>
-                    <div className={classes.textItemContainer}>
-                        <SupportIcon className={classes.iconItem} />
-                        <p>Soporte</p>
+                }
+                {privileges.includes("Support") &&
+                    <div onClick={() => { router.push('/supports'); handleCloseSidebar(); }} className={classes.item}>
+                        <div className={classes.textItemContainer}>
+                            <SupportIcon className={classes.iconItem} />
+                            <p>Soporte</p>
+                        </div>
+                        <ChevronRight className={classes.icon} />
                     </div>
-                    <ChevronRight className={classes.icon} />
-                </div>
-                <div onClick={() => { router.push('/planes'); handleCloseSidebar(); }} className={classes.item}>
+                }
+                {privileges.includes("Membresias") &&
+                    <div onClick={() => { router.push('/planes'); handleCloseSidebar(); }} className={classes.item}>
                     <div className={classes.textItemContainer}>
                         <CreditCartIcon className={classes.iconItem} />
                         <p>Membresias</p>
                     </div>
                     <ChevronRight className={classes.icon} />
                 </div>
+                }
             </div>
         </div>
     );

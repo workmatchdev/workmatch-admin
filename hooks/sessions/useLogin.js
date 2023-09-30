@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import axios from '@/config/clienteAxios';
 import useStoreLogin from "./store";
 import { useRouter } from 'next/router';
@@ -30,6 +30,13 @@ const useLogin = () => {
     }
   };
 
+  const privileges = useMemo(() => {
+    if(user){
+      return user.rol.privileges
+    }
+    return []
+  }, [user])
+
   const handleLogout = async () => {
     try {
       setUser(null);
@@ -43,6 +50,7 @@ const useLogin = () => {
     token,
     user,
     error,
+    privileges,
     handleLogin,
     handleLogout
   };
