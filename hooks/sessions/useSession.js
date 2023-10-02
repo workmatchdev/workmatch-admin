@@ -18,8 +18,6 @@ const useSession = () => {
         token
     ])
 
-    console.log('useruser',user);
-
     useEffect(() => {
       if(!islogged) router.push('/');
     }, [islogged]);
