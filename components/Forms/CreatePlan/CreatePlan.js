@@ -73,11 +73,11 @@ const CreatePlan = (props) => {
                                     </label>
                                     <label className={classes.labelCheckbox}>
                                         <Field className={classes.checkbox} type="checkbox" name="benefits" value="chat" />
-                                        Chat
+                                        Enviar mensaje al realizar match
                                     </label>
                                     <label className={classes.labelCheckbox}>
                                         <Field className={classes.checkbox} type="checkbox" name="benefits" value="support" />
-                                        Soporte
+                                        Soporte inmediato
                                     </label>
                                 </div>
                                 <div className={classes.checkboxContainerCol}>
@@ -87,12 +87,12 @@ const CreatePlan = (props) => {
                                     </label>
                                     <label className={classes.labelCheckbox}>
                                         <Field className={classes.checkbox} type="checkbox" name="benefits" value="statusMatch" />
-                                        Estado de match
+                                        Estatus de la candidatura
                                     </label>
-                                    <label className={classes.labelCheckbox}>
+                                    {/* <label className={classes.labelCheckbox}>
                                         <Field className={classes.checkbox} type="checkbox" name="benefits" value="profileReviewtStatus" />
-                                        Chequear si tu perfil fue revisado
-                                    </label>
+                                        
+                                    </label> */}
                                 </div>
                             </div>
                             <ErrorField errors={errors.benefits}/>

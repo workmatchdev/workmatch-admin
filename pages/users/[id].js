@@ -28,9 +28,9 @@ const User = () => {
                 </div>
                 <div className="w-4/5 p-4 bg-gray-100">
                     <div className="">
-                        <button className="bg-gray-200 p-4 rounded-t-lg">Pagos</button>
-                        <button className="bg-gray-300 p-4 rounded-t-lg">Postulaciones</button>
-                        <button className="bg-gray-200 p-4 rounded-t-lg">Trabajos</button>
+                        <button className="bg-gray-300 p-4 rounded-t-lg">Pagos y membresias</button>
+                        <button className="bg-gray-200 p-4 rounded-t-lg">Postulaciones</button>
+                        {/* <button className="bg-gray-200 p-4 rounded-t-lg">Trabajos</button> */}
                     </div>
                     <div className="bg-gray-300 p-4 w-full">
                         <div className="flex flex-row justify-start flex-wrap">

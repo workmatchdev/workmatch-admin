@@ -80,11 +80,11 @@ const CreateBussinesPlan = (props) => {
                                     </label>
                                     <label className={classes.labelCheckbox}>
                                         <Field className={classes.checkbox} type="checkbox" name="benefits" value="chat" />
-                                        Chat
+                                        Enviar mensaje al realizar match
                                     </label>
                                     <label className={classes.labelCheckbox}>
                                         <Field className={classes.checkbox} type="checkbox" name="benefits" value="support" />
-                                        Soporte
+                                        Soporte inmediato
                                     </label>
                                 </div>
                                 <div className={classes.checkboxContainerCol}>
@@ -94,12 +94,12 @@ const CreateBussinesPlan = (props) => {
                                     </label>
                                     <label className={classes.labelCheckbox}>
                                         <Field className={classes.checkbox} type="checkbox" name="benefits" value="matchsStatus" />
-                                        Estado de match
+                                        Sin limite de trabajos activos
                                     </label>
-                                    <label className={classes.labelCheckbox}>
+                                    {/* <label className={classes.labelCheckbox}>
                                         <Field className={classes.checkbox} type="checkbox" name="benefits" value="validateProfile" />
-                                        Chequear si tu perfil fue revisado
-                                    </label>
+                                        Limite de trabajos disponibles
+                                    </label> */}
                                 </div>
                             </div>
                             <ErrorField errors={errors.benefits} />
