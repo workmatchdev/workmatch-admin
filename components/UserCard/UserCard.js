@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const UserCard = ({data}) => {
-    const { email, lastName, name, status, _id } = data;
+    const { email, lastName, name, status, _id } = data || {};
     return (
         <tr>
             <td class="p-2 whitespace-nowrap">
