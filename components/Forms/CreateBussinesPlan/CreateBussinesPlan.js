@@ -89,11 +89,11 @@ const CreateBussinesPlan = (props) => {
                                 </div>
                                 <div className={classes.checkboxContainerCol}>
                                     <label className={classes.labelCheckbox}>
-                                        <Field className={classes.checkbox} type="checkbox" name="benefits" value="limitMatchesOnJobs" />
-                                        Numero de match en ofertas laborales
+                                        <Field className={classes.checkbox} type="checkbox" name="benefits" value="listOfAspirants" />
+                                        Listado de aspirantes por oferta de trabajo
                                     </label>
                                     <label className={classes.labelCheckbox}>
-                                        <Field className={classes.checkbox} type="checkbox" name="benefits" value="matchsStatus" />
+                                        <Field className={classes.checkbox} type="checkbox" name="benefits" value="noLimitMatches" />
                                         Sin limite de trabajos activos
                                     </label>
                                     {/* <label className={classes.labelCheckbox}>

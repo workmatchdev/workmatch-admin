@@ -81,10 +81,10 @@ const CreatePlan = (props) => {
                                     </label>
                                 </div>
                                 <div className={classes.checkboxContainerCol}>
-                                    <label className={classes.labelCheckbox}>
+                                    {/* <label className={classes.labelCheckbox}>
                                         <Field className={classes.checkbox} type="checkbox" name="benefits" value="limitMatches" />
                                         Numero de match en ofertas laborales
-                                    </label>
+                                    </label> */}
                                     <label className={classes.labelCheckbox}>
                                         <Field className={classes.checkbox} type="checkbox" name="benefits" value="statusMatch" />
                                         Estatus de la candidatura
