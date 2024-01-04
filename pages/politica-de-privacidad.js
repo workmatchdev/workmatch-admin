@@ -28,7 +28,6 @@ const TermsAndConditions = () => {
                 </Link>
                 <div className="mr-8">
                     <Link className="text-white font-semibold mx-2" href={'/blog'}>Blog</Link>
-                    <Link className="text-white font-semibold mx-2" href="#support"> Soporte </Link>
                 </div>
             </header>
             <div className="p-6 max-w-[1400px] mx-auto">

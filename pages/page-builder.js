@@ -25,26 +25,26 @@ const PageBuilder = () => {
                 <div className="w-full mt-4">
                     <div className="flex flex-row items-center justify-between py-2 px-4 w-full bg-[#162D4B]" >
                         <p className="text-white font-bold" >Nombre</p>
-                        <p className="text-white font-bold" >Ultima Actualización</p>
+                        {/* <p className="text-white font-bold" >Ultima Actualización</p> */}
                         <p className="text-white font-bold" >Acciones</p>
                     </div>
                     <div className="flex flex-row items-center justify-between p-4 w-full bg-gray-100" >
                         <p>Landing Page</p>
-                        <p>02/01/2024</p>
+                        {/* <p>02/01/2024</p> */}
                         <Modal title='Editar' buttonStyle={`bg-[#162D4B] p-2 text-white rounded-sm`}>
                             <UpdateLandingPage />
                         </Modal>
                     </div>
                     <div className="flex flex-row items-center justify-between p-4 w-full bg-gray-100">
                         <p>Terminos y condiciones</p>
-                        <p>02/01/2024</p>
+                        {/* <p>02/01/2024</p> */}
                         <Modal title='Editar' buttonStyle={`bg-[#162D4B] p-2 text-white rounded-sm`}>
                            <UpdateTerms />
                         </Modal>
                     </div>
                     <div className="flex flex-row items-center justify-between p-4 w-full bg-gray-100">
                         <p>Politica de privacidad</p>
-                        <p>02/01/2024</p>
+                        {/* <p>02/01/2024</p> */}
                         <Modal title='Editar' buttonStyle={`bg-[#162D4B] p-2 text-white rounded-sm`}>
                             <UpdatePolicy />
                         </Modal>
@@ -55,19 +55,19 @@ const PageBuilder = () => {
                     <p className="text-center font-bold text-2xl mb-4">Entradas de blog</p>
                     <div className="flex flex-row items-center justify-between py-2 px-4 w-full bg-[#162D4B]" >
                         <p className="text-white font-bold" >Nombre</p>
-                        <p className="text-white font-bold" >Ultima Actualización</p>
+                        {/* <p className="text-white font-bold" >Ultima Actualización</p> */}
                         <p className="text-white font-bold" >Acciones</p>
                     </div>
                     <div className="flex flex-row items-center justify-between p-4 w-full bg-gray-100">
                         <p>Landing Page</p>
-                        <p>02/01/2024</p>
+                        {/* <p>02/01/2024</p> */}
                         <Modal title='Editar' buttonStyle={`bg-[#162D4B] p-2 text-white rounded-sm`}>
                             <p>Hola</p>
                         </Modal>
                     </div>
                     <div className="flex flex-row items-center justify-between p-4 w-full bg-gray-100">
                         <p>Landing Page</p>
-                        <p>02/01/2024</p>
+                        {/* <p>02/01/2024</p> */}
                         <Modal title='Editar' buttonStyle={`bg-[#162D4B] p-2 text-white rounded-sm`}>
                             <p>Hola</p>
                         </Modal>
