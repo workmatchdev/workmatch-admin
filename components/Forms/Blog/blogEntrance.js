@@ -1,31 +1,32 @@
 import { Formik, Form, Field } from 'formik';
 import InputFiled from '../../InputFiled';
 import TextLabel from '@/components/TextLabel';
-import useRoles from '@/hooks/roles/useRoles';
 import ErrorField from '@/components/ErrorField';
-import { BlogEntranceSchema } from '@/lib/formsValidations';
-
+import { BlogEntranceSchema, BlogEntranceSchemaUpdate } from '@/lib/formsValidations';
+import ErrorForm from '@/components/ErrorForm';
 import Editor from '@/components/Editor';
+import useBlogEntrance from './useBlogEntrance';
 
-const BlogEntrance = () => {
+const BlogEntrance = ({ setShowModal, id }) => {
+
+    const { handleSubmit, initialValues, submitError, isLoading } = useBlogEntrance({ setShowModal, id });
+
+    const schema = id ? BlogEntranceSchemaUpdate : BlogEntranceSchema;
+
+    if (isLoading) {
+        return <p className='text-center font-bold text-3xl' >Cagando...</p>
+    }
+
     return (
         <div>
             <Formik
-                initialValues={{
-                    title: '',
-                    url: '',
-                    background: null,
-                    shortDescription: '',
-                    longDescription: '',
-                }}
+                initialValues={initialValues}
                 onSubmit={async values => {
-                    console.log('values', values);
-                    // submit(values)
-                    // setShowModal(false)
+                    handleSubmit(values)
                 }}
-                validationSchema={BlogEntranceSchema}
+                validationSchema={schema}
             >
-                {({ errors, touched, setFieldValue }) => (
+                {({ errors, touched, setFieldValue, values }) => (
                     <Form>
                         <div className='mt-4 mb-4'>
                             <InputFiled
@@ -54,7 +55,7 @@ const BlogEntrance = () => {
                                     const reader = new FileReader();
                                     reader.onloadend = () => {
                                         const base64 = reader.result;
-                                        setFieldValue('background', base64)
+                                        setFieldValue('image', base64)
                                     };
 
                                     if (file) {
@@ -64,7 +65,7 @@ const BlogEntrance = () => {
                                 }}
                             />
                         </div>
-                        <ErrorField errors={errors.background} componentFieldTouch={touched.background} />
+                        <ErrorField errors={errors.image} componentFieldTouch={touched.image} />
                         <div className='mt-4 mb-4'>
                             <InputFiled label={'Descripcion corta'}
                                 name='shortDescription'
@@ -77,6 +78,7 @@ const BlogEntrance = () => {
                                 label={'Descripcion Larga'}
                             />
                             <Editor
+                                initialValue={values.longDescription}
                                 onChange={(value) => {
                                     if (value.replace(/<(.|\n)*?>/g, '').trim().length === 0) {
                                         setFieldValue('longDescription', "");
@@ -88,6 +90,7 @@ const BlogEntrance = () => {
                             />
                         </div>
                         <ErrorField errors={errors.longDescription} componentFieldTouch={touched.longDescription} />
+                        <ErrorForm errors={submitError} />
                         <div className='p-5 flex justify-end'>
                             <button
                                 className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-xs px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"

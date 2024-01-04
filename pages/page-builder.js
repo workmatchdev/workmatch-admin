@@ -6,9 +6,13 @@ import Editor from "@/components/Editor";
 import BlogEntrance from "@/components/Forms/Blog/blogEntrance";
 import UpdateTerms from "@/components/Forms/UpdateTerms";
 import UpdatePolicy from "@/components/Forms/UpdatePolicy";
+import useGetBlogs from "@/components/Forms/Blog/useGetBlogs";
 
 const PageBuilder = () => {
     const { user } = useSession();
+
+    const { blogList, deleteBlog } = useGetBlogs();
+
     return (
         <Layout>
             <div>
@@ -39,7 +43,7 @@ const PageBuilder = () => {
                         <p>Terminos y condiciones</p>
                         {/* <p>02/01/2024</p> */}
                         <Modal title='Editar' buttonStyle={`bg-[#162D4B] p-2 text-white rounded-sm`}>
-                           <UpdateTerms />
+                            <UpdateTerms />
                         </Modal>
                     </div>
                     <div className="flex flex-row items-center justify-between p-4 w-full bg-gray-100">
@@ -58,20 +62,20 @@ const PageBuilder = () => {
                         {/* <p className="text-white font-bold" >Ultima Actualización</p> */}
                         <p className="text-white font-bold" >Acciones</p>
                     </div>
-                    <div className="flex flex-row items-center justify-between p-4 w-full bg-gray-100">
-                        <p>Landing Page</p>
-                        {/* <p>02/01/2024</p> */}
-                        <Modal title='Editar' buttonStyle={`bg-[#162D4B] p-2 text-white rounded-sm`}>
-                            <p>Hola</p>
-                        </Modal>
-                    </div>
-                    <div className="flex flex-row items-center justify-between p-4 w-full bg-gray-100">
-                        <p>Landing Page</p>
-                        {/* <p>02/01/2024</p> */}
-                        <Modal title='Editar' buttonStyle={`bg-[#162D4B] p-2 text-white rounded-sm`}>
-                            <p>Hola</p>
-                        </Modal>
-                    </div>
+                    {blogList.map(blog => {
+                        return (
+                            <div key={blog._id} className="flex flex-row items-center justify-between p-4 w-full bg-gray-100">
+                                <p>{blog.title}</p>
+                                {/* <p>02/01/2024</p> */}
+                                <div className="flex flex-row">
+                                    <Modal title='Editar' buttonStyle={`bg-[#162D4B] p-2 text-white rounded-sm`}>
+                                        <BlogEntrance id={blog._id} />
+                                    </Modal>
+                                    <button onClick={() => deleteBlog(blog._id)} className="bg-[#fe2b4e] ml-3 p-2 text-white rounded-sm" >Eliminar</button>
+                                </div>
+                            </div>
+                        )
+                    })}
                 </div>
             </div>
         </Layout>
