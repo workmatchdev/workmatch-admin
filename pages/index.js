@@ -12,8 +12,6 @@ export default function Home() {
     isLoading
   } = useUpdateLandingPage({ setShowModal: () => { }, isLanding: true })
 
-  console.log('initialValues', initialValues);
-
   const {
     title1,
     title2,

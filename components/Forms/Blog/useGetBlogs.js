@@ -2,19 +2,24 @@ import { useState, useEffect } from "react";
 import axios from '@/config/clienteAxios';
 import useStore from "./store";
 
-const useGetBlogs = () => {
+const useGetBlogs = (props) => {
+
+    const {id} = props || {};
 
     const { blogList, setBlogList } = useStore();
 
     const [submitError, setSubmitError] = useState(null)
     const [isLoading, setisLoading] = useState(true)
+    const [suggestions, setSuggestions] = useState([])
 
     useEffect(() => {
         const getData = async () => {
             try {
                 setisLoading(true);
-                const response = await axios.get('/api/pageBuilder/pages/getAllBlogEntrance');
-                const blogs = response.data;
+                const url = !id ? '/api/pageBuilder/pages/getAllBlogEntrance' : `/api/pageBuilder/pages/getBlogEntranceById/${id}`;
+                const response = await axios.get(url);
+                if(id) setSuggestions(response.data.suggestions.filter(suggestion => suggestion._id !== id));
+                const blogs = response.data.page;
                 setBlogList(blogs)
                 setisLoading(false)
                 setSubmitError(false)
@@ -24,7 +29,7 @@ const useGetBlogs = () => {
             }
         }
         getData()
-    }, [])
+    }, [id])
 
     const deleteBlog = async (id) => {
         try {
@@ -43,7 +48,8 @@ const useGetBlogs = () => {
         isLoading,
         blogList,
         submitError,
-        deleteBlog
+        deleteBlog,
+        suggestions
     };
 }
 

@@ -31,7 +31,7 @@ const TermsAndConditions = () => {
                 </div>
             </header>
             <div className="p-6 max-w-[1400px] mx-auto">
-                <div dangerouslySetInnerHTML={{ __html: terminosYcondiciones }} />;
+                <div dangerouslySetInnerHTML={{ __html: terminosYcondiciones }} />
             </div>
             {!isLoading && (
                 <footer className="flex md:flex-row flex-col md:justify-between justify-center bg-[#162D4B] items-center p-10">
