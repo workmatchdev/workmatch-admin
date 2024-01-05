@@ -16,7 +16,6 @@ const useGetUser = () => {
         const getData = async () => {
             try {
                 setisLoading(true);
-                console.log('userId',userId);
                 const url = `/api/applicants/getApplicant/${userId}`;
                 const response = await axios.get(url);
                 const data = response.data;
@@ -25,7 +24,6 @@ const useGetUser = () => {
                 setisLoading(false)
                 setSubmitError(false)
             } catch (error) {
-                console.log(error);
                 setSubmitError('Ha ocurrido un error al obtner la información')
                 setisLoading(false);
             }
@@ -33,11 +31,30 @@ const useGetUser = () => {
         if (userId) getData()
     }, [userId])
 
+
+    const changeUserStatus = async (id) => {
+        try {
+            const url = `/api/applicants/update/${id}`;
+            const response = await axios.put(url,{
+                status: !currentUser?.user?.status
+            });
+            const data = response.data;
+            const newObjectUser = {
+                ...currentUser,
+                user: data.user
+            }
+            setCurrentUser(newObjectUser);
+        } catch (error) {
+            alert('Ha ocurrido un error');
+        }
+    }
+
     return {
         currentUser,
         setCurrentUser,
         submitError,
-        isLoading
+        isLoading,
+        changeUserStatus
     };
 }
 

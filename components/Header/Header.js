@@ -4,6 +4,7 @@ import logo from '@/assets/logo.png'
 import classes from './header.module.css';
 import Sidebar from "../Sidebar/Sidebar";
 import useSidebar from "../Sidebar/hooks/useSidebar";
+import { useRouter } from "next/router";
 
 const Header = () => {
 
@@ -11,13 +12,13 @@ const Header = () => {
         handleSetShowSidebar,
         showSideBar
     } = useSidebar()
-
+    const router = useRouter();
     return (
         <>
             { showSideBar ? <Sidebar /> : null }
             <div className={classes.header}>
                 <div className="">
-                    <div className="bg-white rounded-full p-0">
+                    <div onClick={() => router.push('/users') } className="bg-white rounded-full p-0 cursor-pointer">
                         <Image
                             src={logo}
                             alt='logo'
