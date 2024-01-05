@@ -7,7 +7,7 @@ import useUserData from "@/hooks/useUserData";
 
 const Users = () => {
     const { user } = useSession();
-    const { applicants, totalPages, currentPage, handlePageClick } = useUserData();
+    const { applicants, totalPages, currentPage, handlePageClick } = useUserData({userType:"applicant"});
     return (
         <Layout>
             <div className="bg-gray-100 text-gray-600 min-h-screen px-4 p-10">

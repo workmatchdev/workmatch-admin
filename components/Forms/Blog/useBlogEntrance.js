@@ -17,8 +17,6 @@ const useBlogEntrance = ({ setShowModal, id }) => {
     const [submitError, setSubmitError] = useState(null);
     const [isLoading, setisLoading] = useState(false)
 
-    console.log('initialValues', initialValues);
-
     useEffect(() => {
         const getData = async () => {
             try {
@@ -26,7 +24,7 @@ const useBlogEntrance = ({ setShowModal, id }) => {
                 const response = await axios.get(`/api/pageBuilder/pages/getBlogEntranceById/${id}`);
                 const blogs = { ...response.data.page };
                 delete blogs.image;
-                setInitialValues(blogs)
+                setInitialValues(blogs[0])
                 setisLoading(false)
             } catch (error) {
                 console.log('error', error);

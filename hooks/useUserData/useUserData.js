@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import axios from '@/config/clienteAxios';
 import useStoreUser from './store/useStoreUser';
 
-const useUserData = () => {
+const useUserData = ({userType}) => {
 
     const {
         applicants,
@@ -14,9 +14,9 @@ const useUserData = () => {
         setCurrentPage
     } = useStoreUser();
 
-    const getUsers = async (currentPage) => {
+    const getUsers = async (currentPage,userType) => {
         try {
-            const response = await axios.get(`/api/applicants/${currentPage}/applicant`);
+            const response = await axios.get(`/api/applicants/${currentPage}/${userType}`);
             const users = response.data;
             setTotalPages(users.total)
             setApplicants(users.users)
@@ -25,8 +25,8 @@ const useUserData = () => {
         }
     }
     useEffect(() => {
-        getUsers(currentPage)
-    }, [currentPage])
+        getUsers(currentPage,userType)
+    }, [currentPage,userType])
 
 
     const handlePageClick = (event) => {

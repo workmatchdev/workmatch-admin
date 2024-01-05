@@ -3,9 +3,12 @@ import UserCard from "@/components/UserCard";
 import SearchBar from "@/components/SearchBar/SearchBar";
 import Layout from "@/components/Layout";
 import useSession from "@/hooks/sessions/useSession";
+import useUserData from "@/hooks/useUserData";
 
 const Companies = () => {
     const { user } = useSession();
+    const { applicants, totalPages, currentPage, handlePageClick } = useUserData({userType: "company"});
+
     return (
         <Layout>
             <section className=" bg-gray-100 text-gray-600 min-h-screen px-4 p-10">
@@ -34,14 +37,19 @@ const Companies = () => {
                                         </tr>
                                     </thead>
                                     <tbody className="text-sm divide-y divide-gray-100">
-                                        <UserCard />
+                                        {applicants.map(applicant => {
+                                            if(applicant.userType === "applicant") return null
+                                            return (
+                                                <UserCard key={applicant._id} data={applicant} />
+                                            )
+                                        })}
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
-                <Pagination />
+                <Pagination currentPage={currentPage} totalPages={totalPages} handlePageClick={handlePageClick} />
             </section>
         </Layout>
     );
