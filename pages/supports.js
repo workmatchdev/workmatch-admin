@@ -2,14 +2,45 @@ import Layout from "@/components/Layout";
 import Title from "@/components/Title";
 import Modal from "@/components/Modal";
 import useSession from "@/hooks/sessions/useSession";
-
+import useGetSupport from "@/hooks/support/useGetSupport";
+import useSupport from '@/hooks/support/useSupport';
 
 const Supports = () => {
 
     const { user } = useSession();
 
+    const {
+        isLoading,
+        listOffSupports,
+        setlistOffSupports
+    } = useGetSupport();
+
+    const {
+        handleDeleteSupport,
+        handleUpdateSupport
+    } = useSupport();
+
+    const obtenerFechaMexico = (fecha) => {
+        const options = {
+            timeZone: 'America/Mexico_City',
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit'
+        };
+        const fechaMexico = new Date(fecha).toLocaleString('es-MX', options);
+        return fechaMexico;
+    };
+
     return (
         <Layout>
+            {isLoading && (
+                <div role="status" class="flex flex-col justify-center items-center fixed z-10 bg-gray-200 w-full h-full">
+                    <svg aria-hidden="true" class="w-20 h-20 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor" /><path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill" /></svg>
+                    <span class="">Loading...</span>
+                </div>
+            )}
             <Title title="Soporte" />
             <div className="mt-10 overflow-x-auto">
                 <div className="min-w-[1100px]">
@@ -19,32 +50,68 @@ const Supports = () => {
                             <p className="w-1/5">Email</p>
                             <p className="w-1/5">Fecha</p>
                             <p className="w-1/5">Status</p>
-                            <p className="w-1/5"></p>
+                            <p className="w-1/5">Acciones</p>
                         </div>
                     </div>
-                    <div className="flex flex-row justify-between items-center py-2 px-2 bg-slate-100">
-                        <p className="w-1/5">Cosme Fulanito</p>
-                        <p className="w-1/5">cosmeFulnatio@gmail.com</p>
-                        <p className="w-1/5">11/09/2023</p>
-                        <div className="w-1/5">
-                            <p className="p-2 bg-orange-400 rounded-md text-white w-20">No leido</p>
-                        </div>
-                        <div className="w-1/5">
-                            <Modal title='Ver mensaje'>
-                                <div className="p-4">
-                                    <p className="py-2 font-semibold"><span>Nombre:</span> Cosme Fulanito</p>
-                                    <p className="py-2 font-semibold"><span>Email:</span> cosmeFulnatio@gmail.com</p>
-                                    <p className="py-2 font-semibold"><span>Fecha: </span> 11/09/2023</p>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed leo vitae odio iaculis eleifend ac vel libero. Integer placerat eros vestibulum lorem faucibus finibus. Ut sed nisl nec massa cursus cursus. Praesent vel accumsan enim. Vivamus accumsan velit at nunc sodales, non lobortis tellus lacinia. Phasellus ex nunc, eleifend id mattis quis, ultrices eget elit. Sed et dignissim nisi, vitae accumsan ante. Donec vestibulum aliquam odio, sed dignissim dolor iaculis vel. Nam purus mi, aliquet sit amet urna id, convallis pulvinar tortor.
-                                    </p>
-                                    <div class="w-full h-96">
-                                        <img class="object-contain h-full w-full mx-auto" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/2048px-Facebook_f_logo_%282019%29.svg.png" />
+                    {
+                        listOffSupports.map(item => {
+
+                            const date = new Date(item.date);
+                            const formattedDate = obtenerFechaMexico(date);
+
+                            const image = item?.image?.url;
+
+                            const colorStatus = item.status === 'revisado' ? 'bg-blue-500' : 'bg-orange-400';
+
+                            return (
+                                <div className="flex flex-row justify-between items-center py-4 px-2 bg-slate-100">
+                                    <p className="w-1/5">{item.name}</p>
+                                    <p className="w-1/5">{item.email}</p>
+                                    <p className="w-1/5">{formattedDate}</p>
+                                    <div className="w-1/5">
+                                        <p className={`${colorStatus} p-2 rounded-md text-white w-24 text-center`}>{item.status}</p>
+                                    </div>
+                                    <div className="w-1/5 flex flex-row">
+                                        <button
+                                            onClick={() => {
+                                                handleDeleteSupport(item._id, (id) => {
+                                                    const updateValues = listOffSupports.filter((val) => val._id !== id)
+                                                    setlistOffSupports(updateValues);
+                                                })
+                                            }}
+                                            className="mx-4 bg-red-500 p-2 text-white rounded-md">Eliminar</button>
+                                        <Modal
+                                            onOpenModal={() => {
+                                                handleUpdateSupport(item._id, (id, newValue) => {
+                                                    const updateValues = listOffSupports.map((val) => {
+                                                        if (id === val._id) return newValue
+                                                        return val
+                                                    })
+                                                    console.log('updateValues',);
+                                                    setlistOffSupports(updateValues);
+                                                })
+                                            }}
+                                            title='Ver mensaje' buttonStyle={'bg-[#162D4B] p-2 text-white rounded-md'}>
+                                            <div className="p-4">
+                                                <p className="py-2 font-semibold"><span>Nombre:</span> {item.name}</p>
+                                                <p className="py-2 font-semibold"><span>Email:</span> {item.name}</p>
+                                                <p className="py-2 font-semibold"><span>Fecha: </span> {formattedDate}</p>
+                                                <p className="flex flex-col">
+                                                    <span className="font-semibold mb-4">Mensaje</span>
+                                                    {item.message}
+                                                </p>
+                                                {image && (
+                                                    <div class="w-full h-96 mt-4 p-6">
+                                                        <img class="object-contain h-full w-full mx-auto" src={image} />
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </Modal>
                                     </div>
                                 </div>
-                            </Modal>
-                        </div>
-                    </div>
+                            )
+                        })
+                    }
                 </div>
             </div>
         </Layout>

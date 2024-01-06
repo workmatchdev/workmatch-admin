@@ -3,6 +3,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import EmailIcon from '@mui/icons-material/Email';
+import FormSupport from "@/components/Forms/Support";
 import useUpdateLandingPage from "@/components/Forms/UpdateLandingPage/hooks/useUpdateLandingPage";
 
 export default function Home() {
@@ -107,22 +108,7 @@ export default function Home() {
         </div>
 
         <div id="support" className="w-full mt-8">
-          <form className="w-full mx-auto bg-gray-100 p-4 rounded-md">
-            <p className="p-4 text-center font-bold text-2xl">Soporte</p>
-            <div className="flex flex-col mb-4">
-              <label className="text-sm font-semibold">Email:</label>
-              <input className="p-2 rounded-sm outline-none" placeholder="joe@Doe.com" />
-            </div>
-            <div className="flex flex-col mb-4">
-              <label className="text-sm font-semibold">Archivo:</label>
-              <input type="file" className="p-2 rounded-sm outline-none" placeholder="joe@Doe.com" />
-            </div>
-            <div className="flex flex-col mb-4">
-              <label className="text-sm font-semibold">Mensaje:</label>
-              <textarea className="p-2 rounded-sm outline-none" placeholder="joe@Doe.com" />
-            </div>
-            <button className="p-2 bg-pink-600 rounded-sm font-semibold w-full text-white" >Enviar</button>
-          </form>
+          <FormSupport />
         </div>
       </div>
       {!isLoading && (

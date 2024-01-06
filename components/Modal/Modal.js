@@ -2,7 +2,7 @@ import { useState, Children, isValidElement, cloneElement } from "react";
 
 const Modal = (props) => {
 
-    const { children, title, buttonStyle } = props;
+    const { children, title, buttonStyle, onOpenModal = () => {} } = props;
     const [showModal, setShowModal] = useState(false);
 
     const childrenWithProps = Children.map(children, child => {
@@ -18,7 +18,10 @@ const Modal = (props) => {
                 <button
                     className={buttonStyle}
                     type="button"
-                    onClick={() => setShowModal(true)}
+                    onClick={() => {
+                        onOpenModal()
+                        setShowModal(true)
+                    }}
                 >
                    {title}
                 </button>
