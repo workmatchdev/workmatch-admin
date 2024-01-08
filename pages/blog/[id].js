@@ -68,9 +68,9 @@ const Blog = () => {
                     <div className="my-6">
                         <p className="text-center font-bold text-2xl mb-6">Sugerencias</p>
                         <div>
-                            {suggestions.map(suggestion => {
+                            {suggestions.map((suggestion,i) => {
                                 return (
-                                    <div className="flex justify-between md:flex-row flex-col items-start bg-gray-100 py-4 mb-4">
+                                    <div key={i} className="flex justify-between md:flex-row flex-col items-start bg-gray-100 py-4 mb-4">
                                         <div className="h-[15rem] w-1/3 rounded-lg">
                                             <img className="object-contain w-full h-full" src="https://wallpapers.com/images/featured/business-jzw8ax93flqonkce.jpg" />
                                         </div>
