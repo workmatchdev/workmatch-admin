@@ -70,7 +70,7 @@ const Sidebar = () => {
                         <ChevronRight className={classes.icon} />
                     </div>
                 }
-                {
+                {/* {
                     privileges.includes("Metricas") &&
                     <div onClick={() => { router.push('/metrics'); handleCloseSidebar(); }} className={classes.item}>
                         <div className={classes.textItemContainer}>
@@ -79,7 +79,7 @@ const Sidebar = () => {
                         </div>
                         <ChevronRight className={classes.icon} />
                     </div>
-                }
+                } */}
                 {
                     privileges.includes("Roles") &&
                     <div onClick={() => { router.push('/roles'); handleCloseSidebar(); }} className={classes.item}>
