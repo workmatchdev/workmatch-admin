@@ -72,7 +72,7 @@ const User = () => {
                     </div>
                     <div className="bg-gray-300 p-4 w-full">
                         <div className="flex flex-row justify-start flex-wrap">
-                            {paymentMemberships?.map(paymentMembership => {
+                            {paymentMemberships?.map((paymentMembership,i) => {
                                 const {
                                     membership,
                                     paymentMembership: paymentMembershipData
@@ -89,7 +89,7 @@ const User = () => {
                                 const fechaFormateada = fecha.toLocaleDateString('es-ES', opciones);
                                 const activeMembership = currentMemberships.activeMemberships._id === paymentMembershipData?._id;
                                 return (
-                                    <div className="w-[calc(33.33%-1rem)] bg-white p-4 mb-4 mr-4 rounded-md">
+                                    <div key={i} className="w-[calc(33.33%-1rem)] bg-white p-4 mb-4 mr-4 rounded-md">
                                         <p>{membership?.name}</p>
                                         <p>{fechaFormateada}</p>
                                         <p>{cantidadFormateada}</p>

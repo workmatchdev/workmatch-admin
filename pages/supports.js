@@ -64,7 +64,7 @@ const Supports = () => {
                             const colorStatus = item.status === 'revisado' ? 'bg-blue-500' : 'bg-orange-400';
 
                             return (
-                                <div className="flex flex-row justify-between items-center py-4 px-2 bg-slate-100">
+                                <div key={item._id} className="flex flex-row justify-between items-center py-4 px-2 bg-slate-100">
                                     <p className="w-1/5">{item.name}</p>
                                     <p className="w-1/5">{item.email}</p>
                                     <p className="w-1/5">{formattedDate}</p>
