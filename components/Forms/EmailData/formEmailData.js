@@ -3,19 +3,19 @@ import { Formik, Form } from 'formik';
 import InputFiled from '../../InputFiled';
 import ErrorField from '@/components/ErrorField';
 import { validationSchemaEmailConfiguration } from '@/lib/formsValidations';
+import useEmailData from './hooks/useEmailData';
 
 const FormSupport = () => {
 
+    const { handleSubmit, initialValues, loading } = useEmailData();
+
+    if(loading) return null
+
     return (
         <Formik
-            initialValues={{
-                host: '',
-                port: '',
-                email: '',
-                password: ''
-            }}
+            initialValues={initialValues}
             onSubmit={(values, props) => {
-                props.resetForm()
+                handleSubmit(values)
             }}
             validationSchema={validationSchemaEmailConfiguration}
         >
