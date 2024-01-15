@@ -121,13 +121,20 @@ const Sidebar = () => {
                 }
                 {privileges.includes("Membresias") &&
                     <div onClick={() => { router.push('/planes'); handleCloseSidebar(); }} className={classes.item}>
+                        <div className={classes.textItemContainer}>
+                            <CreditCartIcon className={classes.iconItem} />
+                            <p>Membresias</p>
+                        </div>
+                        <ChevronRight className={classes.icon} />
+                    </div>
+                }
+                <div onClick={() => { router.push('/configurations'); handleCloseSidebar(); }} className={classes.item}>
                     <div className={classes.textItemContainer}>
                         <CreditCartIcon className={classes.iconItem} />
-                        <p>Membresias</p>
+                        <p>Configuraciones</p>
                     </div>
                     <ChevronRight className={classes.icon} />
                 </div>
-                }
             </div>
         </div>
     );

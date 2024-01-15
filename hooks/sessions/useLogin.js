@@ -7,7 +7,7 @@ const useLogin = () => {
 
   const router = useRouter();
   const [error, setError] = useState(null);
-
+  const path = router?.asPath;
   const {
     user,
     setUser,
@@ -16,8 +16,8 @@ const useLogin = () => {
   } = useStoreLogin();
 
   useEffect(() => {
-    if(user && token) router.push('users');
-  }, [user,token])
+    if (user && token && path === "/login") router.push('/users');
+  }, [user, token, path])
 
   const handleLogin = async (values) => {
     try {
@@ -31,7 +31,7 @@ const useLogin = () => {
   };
 
   const privileges = useMemo(() => {
-    if(user){
+    if (user) {
       return user.rol.privileges
     }
     return []
